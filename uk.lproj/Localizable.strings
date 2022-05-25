@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Utilities
+
+  Created by Natalya Lysakova on 22.05.2022.
+  
+*/
+
+"checks" = "Рахунки";
+"tarifs" = "Тарифи";
+"utilities" = "Послуги";
+"new_check" = "Новий рахунок";
+"currency" = "грн";
+"check_from" = "Рахунок за %@";
+"id" = "Ідентефікатор";
+"date" = "Дата";
+"sum" = "Сумма";
+"tariff" = "Тариф";
+"utility_name" = "Назва послуги";
+"utility_type" = "Тип послуги";
+"tarif_start_date" = "Діє з";
+"tarif_cost" = "Ціна";
+"units" = "Одиниці виміру";
+"data" = "Дані";
+"previous_value" = "Попередій вимір";
+"meters" = "Вимір";
+"mesures" = "Обсяг";
+"cost" = "Ціна";
+"close" = "Закрити";
+"general" = "Загальні відомості";
+"records" = "Показчики";
+"HotWater" = "Гаряча вода";
+"ColdWater" = "Холодна вода";
+"Heating" = "Опалення";
+"Electricity" = "Електропостачання";
+"TrashService" = "Обслуговування";
+"Security" = "Безпека";
+"Internet" = "Інтернет";
+"Other" = "Інше";
+"Gas" = "Газ";
+"settings" = "Налаштування";

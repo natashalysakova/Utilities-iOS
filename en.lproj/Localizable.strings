@@ -1,0 +1,41 @@
+/* 
+  Localizable.strings
+  Utilities
+
+  Created by Natalya Lysakova on 22.05.2022.
+  
+*/
+
+"checks" = "Checks";
+"tarifs" = "Tarifs";
+"utilities" = "Utilities";
+"new_check" = "New check";
+"currency" = "UAH";
+"check_from" = "Check from %@";
+"id" = "Identificator";
+"date" = "Date";
+"sum" = "Summ";
+"tariff" = "Tarif";
+"utility_name" = "Title";
+"utility_type" = "Type";
+"tarif_start_date" = "Active from";
+"tarif_cost" = "Price";
+"units" = "Uinits";
+"data" = "Data";
+"previous_value" = "Previous value";
+"meters" = "Current value";
+"mesures" = "Amount";
+"cost" = "Cost";
+"close" = "Close";
+"general" = "General";
+"records" = "Records";
+"HotWater" = "Hot water";
+"ColdWater" = "Cold water";
+"Heating" = "Heating";
+"Electricity" = "Electicity";
+"TrashService" = "Services";
+"Security" = "Security";
+"Internet" = "Intenet";
+"Other" = "Other";
+"Gas" = "Gas";
+"settings" = "Settings";
