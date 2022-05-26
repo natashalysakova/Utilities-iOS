@@ -39,3 +39,8 @@
 "Other" = "Other";
 "Gas" = "Gas";
 "settings" = "Settings";
+"use_meters" = "Use meters data";
+"order" = "Sequence number";
+"total" = "Total";
+"save_to_photos" = "Save to Photo roll";
+"share" = "Share";

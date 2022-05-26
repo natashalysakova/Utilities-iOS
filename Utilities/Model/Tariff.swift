@@ -47,7 +47,8 @@ extension Tariff {
         if(isActive) {
             return .white
         }
-        return Color("ListText")
+        //return Color("ListText")
+        return .gray
     }
 }
 /*

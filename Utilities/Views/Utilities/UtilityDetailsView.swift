@@ -17,32 +17,51 @@ struct UtilityDetailsView: View {
             HStack{
                 Text("utility_type")
                 Spacer()
-                Label(utility.utilityType.localizedName , systemImage: utility.utilityType.icon)
+                Text(utility.utilityType.localizedName)
+                Image(systemName: utility.utilityType.icon).foregroundColor(utility.utilityType.color)
+            }
+            
+            HStack{
+                Text("utility_name")
+                Spacer()
+                Text(String(utility.name)).foregroundColor(.gray)
+                
             }
 #if DEBUG
             HStack{
                 Text("id")
                 Spacer()
-                Text(String(utility.id))
+                Text(String(utility.id)).foregroundColor(.gray)
             }
 #endif
             
             HStack{
                 Text("units")
                 Spacer()
-                Text(String(utility.units ?? "?"))
+                Text(String(utility.units ?? "?")).foregroundColor(.gray)
+                
             }
             HStack{
                 Text("order")
                 Spacer()
-                Text(String(utility.order))
+                Text(String(utility.order)).foregroundColor(.gray)
             }
             
             HStack{
                 Toggle("use_meters", isOn: $useMeters).disabled(true)
             }
             
-            Section("tarifs"){
+            Section(header:
+                        HStack{
+                Text("tarifs")
+                Spacer()
+                Button {
+                    
+                } label: {
+                    Image(systemName: "plus")
+                }
+                
+            }.font(.callout)){
                 ForEach (tarifs.sorted(by: { one, two in
                     one.startDate > two.startDate
                 })){tarif in
@@ -52,7 +71,7 @@ struct UtilityDetailsView: View {
                             Text(DateFormatter.shortDate.string(from: tarif.startDate))
                             if(!tarif.isActive)
                             {
-                                Text(" - ")
+                                Text(verbatim: " - ")
                                 Text(DateFormatter.shortDate.string(from: tarif.endDate ?? Date()))
                                 
                             }
@@ -61,7 +80,7 @@ struct UtilityDetailsView: View {
                         }
                         .listRowBackground(tarif.color)
                         .foregroundColor(tarif.textColor)
-                            
+                        
                     }
                 }
             }

@@ -16,6 +16,7 @@
 		0CC0E9E4283B9633007BF690 /* CheckEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0E9E3283B9633007BF690 /* CheckEditView.swift */; };
 		0CC0E9EA283DAAFA007BF690 /* UtilityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0E9E9283DAAFA007BF690 /* UtilityDetailsView.swift */; };
 		0CC0E9EC283EA84F007BF690 /* UtilitySectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0E9EB283EA84F007BF690 /* UtilitySectionView.swift */; };
+		0CC0E9F12840360F007BF690 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC0E9F02840360E007BF690 /* ReportView.swift */; };
 		0CF338572839A7910063EE2C /* UtilitiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF338562839A7910063EE2C /* UtilitiesApp.swift */; };
 		0CF338592839A7910063EE2C /* ChecksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF338582839A7910063EE2C /* ChecksView.swift */; };
 		0CF3385B2839A7910063EE2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CF3385A2839A7910063EE2C /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		0CC0E9E3283B9633007BF690 /* CheckEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEditView.swift; sourceTree = "<group>"; };
 		0CC0E9E9283DAAFA007BF690 /* UtilityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityDetailsView.swift; sourceTree = "<group>"; };
 		0CC0E9EB283EA84F007BF690 /* UtilitySectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitySectionView.swift; sourceTree = "<group>"; };
+		0CC0E9F02840360E007BF690 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		0CF338532839A7910063EE2C /* Utilities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Utilities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CF338562839A7910063EE2C /* UtilitiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilitiesApp.swift; sourceTree = "<group>"; };
 		0CF338582839A7910063EE2C /* ChecksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecksView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 		0CF3384A2839A7900063EE2C = {
 			isa = PBXGroup;
 			children = (
+				0CC0E9F02840360E007BF690 /* ReportView.swift */,
 				0CC0E9DD283B8394007BF690 /* MainView.swift */,
 				0C73063D283ACFBD00B4FE91 /* FormatterExtentions.swift */,
 				0C73063B283ACBA800B4FE91 /* Localizable.strings */,
@@ -256,6 +259,7 @@
 				0CF3386A2839A8880063EE2C /* Tariff.swift in Sources */,
 				0CF3386C2839A8930063EE2C /* Utility.swift in Sources */,
 				0CC0E9DE283B8394007BF690 /* MainView.swift in Sources */,
+				0CC0E9F12840360F007BF690 /* ReportView.swift in Sources */,
 				0CF338572839A7910063EE2C /* UtilitiesApp.swift in Sources */,
 				0CF338682839A87C0063EE2C /* Record.swift in Sources */,
 				0CF3387F283AA0B30063EE2C /* ErrorView.swift in Sources */,
@@ -408,6 +412,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Utilities/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save reports to photolibrary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,6 +442,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Utilities/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save reports to photolibrary";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

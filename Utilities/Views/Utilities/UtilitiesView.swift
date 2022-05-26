@@ -28,7 +28,12 @@ struct UtilitiesView: View {
         }
         .toolbar {
             //#warning("TODO: implement")
-            
+            Button {
+                
+            } label: {
+                Image(systemName: "plus")
+            }
+
         }
         .sheet(isPresented: $newUtilityPresented, onDismiss: {
             print("closing")
@@ -67,10 +72,9 @@ struct UtilitiesView: View {
 
 struct UtilitiesView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        NavigationView{
             UtilitiesView(utilities: .constant(Utility.sampleData), tarifs: .constant(Tariff.sampleData)).preferredColorScheme(.light)
             UtilitiesView(utilities: .constant(Utility.sampleData), tarifs: .constant(Tariff.sampleData)).preferredColorScheme(.dark)
         }
-        
     }
 }
