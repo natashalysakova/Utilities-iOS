@@ -48,7 +48,7 @@ struct MainView: View {
 //            }.tag(1)
             
             NavigationView {
-                UtilitiesView(utilities: $model.utilities, tarifs: $model.tariffs)
+                UtilitiesView(dataModel: $model)
                     .navigationTitle(String(localized: "utilities"))
             }.tabItem {
                 Image(systemName: "hammer")
@@ -58,6 +58,7 @@ struct MainView: View {
         .navigationViewStyle(.stack)
         .onChange(of: scenePhase) { phase in
             if phase == .inactive { saveAction() }}
+        
         
     }
 }

@@ -21,7 +21,7 @@ struct RecordView: View {
                     Text(record.id?.uuidString ?? "")
                         .foregroundColor(Color.gray)
                         .lineLimit(1)
-                }
+                }.listRowBackground(Color.orange)
 #endif
                 Section(String(localized: "tariff")) {
                     HStack (alignment: .lastTextBaseline){

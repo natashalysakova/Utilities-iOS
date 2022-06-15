@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Utility : Identifiable, Codable {
+class Utility : Identifiable, Codable {
     
     internal init(id: Int, name: String, utilityType: UtilityType, units: String, order: Int, useMeters: Bool, useMesures : Bool) {
         self.id = id
@@ -20,6 +20,26 @@ struct Utility : Identifiable, Codable {
     }
 
     
+    init(from: Utility) {
+        self.id = from.id
+        self.name = from.name
+        self.utilityType = from.utilityType
+        self.units = from.units
+        self.order = from.order
+        self.useMeters = from.useMeters
+        self.useMesures = from.useMesures
+    }
+    
+    func update(from: Utility.Data) {
+        self.name = from.name
+        self.utilityType = from.utilityType
+        self.units = from.units
+        self.order = from.order
+        self.useMeters = from.useMeters
+        self.useMesures = from.useMesures
+    }
+    
+    
     let id : Int
     var name : String
     var utilityType : UtilityType
@@ -28,9 +48,25 @@ struct Utility : Identifiable, Codable {
     var useMesures : Bool
     var useMeters : Bool
     
+    var data : Data{
+        Data(id: id, name: name, utilityType: utilityType, units: units ?? "", order: order, useMesures: useMesures, useMeters: useMeters)
+    }
+    
     private enum CodingKeys : String, CodingKey{
         case id = "Id", name = "Name", utilityType = "Type", units = "Units", order = "Order", useMesures = "UseMesures", useMeters = "UseMeters"
     }
+    
+    
+    struct Data {
+        var id = -1
+        var name = ""
+        var utilityType : UtilityType = .Other
+        var units = ""
+        var order = -1
+        var useMesures = true
+        var useMeters = false
+    }
+    
 }
 
 extension Utility {
@@ -42,11 +78,11 @@ extension Utility {
     ]
 }
 /*
-public int Id { get; set; }
-public string Name { get; set; }
-public Utility Type { get; set; }
-public string Units { get; set; }
-public int Order { get; set; }
-public bool UseMesures { get; set; }
-public bool UseMeters { get; set; }
-*/
+ public int Id { get; set; }
+ public string Name { get; set; }
+ public Utility Type { get; set; }
+ public string Units { get; set; }
+ public int Order { get; set; }
+ public bool UseMesures { get; set; }
+ public bool UseMeters { get; set; }
+ */

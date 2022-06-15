@@ -8,7 +8,14 @@
 import Foundation
 import SwiftUI
 
-struct Check : Identifiable, Codable {
+class Check : Identifiable, Codable {
+    internal init(id: UUID? = UUID(), date: Date, sum: Decimal, records: [Record]) {
+        self.id = id
+        self.date = date
+        self.sum = sum
+        self.records = records
+    }
+    
     
     var id : UUID? = UUID()
     var date : Date

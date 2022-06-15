@@ -12,7 +12,7 @@ struct CheckDetailsView: View {
     @State private var IsRecordDetailPresented : Bool = false
     @State private var DetailItem : Record?
     @State private var IsPopoverPresented : Bool = false
-    
+    @Environment(\.colorScheme) var colorScheme
     //    func SortRecords(records: [Record]) -> [Record] {
     //        records.sorted(by: { one, two in
     //            one.tariff.utility.order < two.tariff.utility.order
@@ -35,7 +35,7 @@ struct CheckDetailsView: View {
                         Text(check.id?.uuidString ?? "")
                             .foregroundColor(Color.gray)
                             .lineLimit(1)
-                    }
+                    }.listRowBackground(Color.orange)
 #endif
                     HStack{
                         Label("date", systemImage: "calendar")
@@ -67,14 +67,31 @@ struct CheckDetailsView: View {
                         }
                     }
                 }
-                NavigationLink("Report", destination: report, isActive: $IsPopoverPresented)
+                Button {
+                    IsPopoverPresented.toggle()
+                } label: {
+                    Text("report")
+                }
+
+//                NavigationLink("report", destination:
+//                                VStack {
+//                                    report
+//                                    Button {
+//                                        let image = report.screenshot()
+//                                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+//                                    } label: {
+//                                        Text("save_to_photos")
+//                                    }.buttonStyle(.borderedProminent)
+//            }, isActive: $IsPopoverPresented)
             }
             .navigationTitle(String(format: String(localized: "check_from"), DateFormatter.monthAndYear.string(from: check.date)))
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button {
                     IsPopoverPresented.toggle()
-
+                    let image = report.screenshot()
+                    actionSheet(image: image)
+                    IsPopoverPresented.toggle()
                 } label: {
                     Image(systemName: "square.and.arrow.up")
                 }
@@ -84,18 +101,36 @@ struct CheckDetailsView: View {
             }, content: { record in
                 RecordView(record: record)
             })
+            .sheet(isPresented: $IsPopoverPresented, content: {
+                VStack {
+                    report
+                    Button {
+                        let image = report.screenshot()
+                        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                        IsPopoverPresented.toggle()
+                    } label: {
+                        Text("save_to_photos")
+                    }.buttonStyle(.borderedProminent)
+                }
+            })
         }
     }
     
     
-    
+    func actionSheet(image : UIImage) {
+        let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        window?.rootViewController?.present(activityVC, animated: true, completion: nil)
+    }
 }
 
 struct CheckDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        //NavigationView {
             CheckDetailsView(check: .constant(Check.sampleData[0]))
-        }
+        //}
     }
 }
 

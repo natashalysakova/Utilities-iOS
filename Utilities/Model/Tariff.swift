@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Tariff : Identifiable, Codable {
+class Tariff : Identifiable, Codable {
     
     let id : Int
     var utility : Utility
@@ -17,8 +17,40 @@ struct Tariff : Identifiable, Codable {
     var cost : Decimal
     var isActive : Bool
     
+    init(id: Int, utility:Utility, startDate: Date, cost: Decimal, isActive : Bool) {
+        self.id = id
+        self.utility = utility
+        self.startDate = startDate
+        self.isActive = isActive
+        self.endDate = nil
+        self.cost = cost
+    }
+    
     private enum CodingKeys : String, CodingKey{
         case id = "Id", utility = "Type", startDate = "StartDate", endDate = "EndDate", cost = "Cost", isActive = "IsActive"
+    }
+    
+    static func FromData(data: TarifData, id : Int, utility: Utility) -> Tariff {
+        return Tariff(id: id, utility: utility, startDate: data.startDate, cost: data.cost, isActive: true)
+    }
+    
+    func Disable() -> Void {
+        self.isActive = false;
+        endDate = Date()
+    }
+    
+    func Update (newData: Tariff){
+        self.utility = newData.utility
+        self.isActive = newData.isActive
+        self.cost = newData.cost
+        self.startDate = newData.startDate
+        self.endDate = newData.endDate
+    }
+    
+    struct TarifData
+    {
+        var startDate : Date = Date()
+        var cost : Decimal = 0
     }
 }
 

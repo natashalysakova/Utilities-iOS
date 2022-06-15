@@ -9,25 +9,26 @@ import SwiftUI
 
 @main
 struct UtilitiesApp: App {
-    @StateObject private var store = UtilityStore()
+    
+    @State private var model = UtilityDataModel()
     @State private var errorWrapper: ErrorWrapper?
     
     var body: some Scene {
         WindowGroup {
-            MainView(model: $store.model){
+            MainView(model: $model){
                 Task{
                     do {
-                        try await UtilityStore.save(model: store.model)
+                        try await UtilityDataModel.save(model: model)
                     } catch {
                         errorWrapper = ErrorWrapper(error: error, guidance: "Try again later.")
                     }
                 }
             }
-            
+            .preferredColorScheme(.dark)
             .task {
                 do {
-                    store.model = try await UtilityStore.load()
-                    store.model.validate()
+                    model = try await UtilityDataModel.load()
+                    model.validate()
                 } catch {
                     errorWrapper = ErrorWrapper(error: error, guidance: "Scrumdinger will load sample data and continue")
                 }

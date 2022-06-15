@@ -8,7 +8,16 @@
 import Foundation
 import CoreImage
 
-struct Record : Identifiable, Codable {
+class Record : Identifiable, Codable {
+    internal init(id: UUID? = UUID(), tariff: Tariff, previousValue: Decimal, meters: Decimal, measure: Decimal, cost: Decimal) {
+        self.id = id
+        self.tariff = tariff
+        self.previousValue = previousValue
+        self.meters = meters
+        self.measure = measure
+        self.cost = cost
+    }
+    
     
     var id : UUID? = UUID()
     var tariff : Tariff

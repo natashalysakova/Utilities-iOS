@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum UtilityType : Int, Codable {
+enum UtilityType : Int, Codable, CaseIterable {
     case HotWater = 0
     case ColdWater = 1
     case Heating = 2
