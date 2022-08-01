@@ -33,6 +33,7 @@ class UtilityDataModel : ObservableObject, Codable {
     @Published var utilities : [Utility]
     
     
+    
     private enum CodingKeys : String, CodingKey {
         case tariffs = "Tarifs", checks = "Checks", utilities = "UtilityTypes"
     }
@@ -204,10 +205,35 @@ class UtilityDataModel : ObservableObject, Codable {
         }
     }
     
-    public func Grouped() -> Dictionary<String, [Utility]> {
-        return Dictionary(grouping: utilities) { u in
-            u.utilityType.localizedName
+    var groupedChecks : Dictionary<Int, [Check]> {
+        return Dictionary(grouping: checks) { c in
+            Calendar.current.dateComponents([.year], from: c.date).year ?? 0
         }
+    }
+    func getYears() -> [String] {
+        let d = DateFormatter()
+        d.dateFormat = "yyyy"
+        
+        return checks.map { c in
+            d.string(from: c.date)
+        }.uniqued().sorted().reversed()
+    }
+    func getChecks(year : String) -> [Check] {
+        let d = DateFormatter()
+        d.dateFormat = "yyyy"
+        
+        return checks.filter({ c in
+            d.string(from: c.date) == year
+        }).sorted { c1, c2 in
+            c1.date > c2.date
+        }
+    }
+}
+
+public extension Array where Element: Hashable {
+    func uniqued() -> [Element] {
+        var seen = Set<Element>()
+        return filter{ seen.insert($0).inserted }
     }
 }
 
@@ -248,6 +274,21 @@ extension UtilityDataModel {
         }
     }
     
+    static func load2() -> UtilityDataModel{
+        do{
+        let fileURL = try fileURL()
+        guard let file = try? FileHandle(forReadingFrom: fileURL) else {
+            return UtilityDataModel()
+        }
+        let decoder = JSONDecoder();
+        decoder.dateDecodingStrategy = .formatted(.iso8601Full)
+        let tmp = try decoder.decode(UtilityDataModel.self, from: file.availableData)
+        return tmp
+        }
+        catch{
+            return UtilityDataModel()
+        }
+    }
     
     static func load(completion: @escaping (Result<UtilityDataModel, Error>)->Void) {
         DispatchQueue.global(qos: .background).async {
@@ -262,9 +303,6 @@ extension UtilityDataModel {
                 let decoder = JSONDecoder();
                 decoder.dateDecodingStrategy = .formatted(.iso8601Full)
                 let tmp = try decoder.decode(UtilityDataModel.self, from: file.availableData)
-                tmp.checks = tmp.checks.sorted(by: { one, two in
-                    one.date > two.date
-                })
                 DispatchQueue.main.async {
                     completion(.success(tmp))
                 }

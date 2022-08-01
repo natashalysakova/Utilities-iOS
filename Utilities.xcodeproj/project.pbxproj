@@ -39,7 +39,6 @@
 /* Begin PBXFileReference section */
 		0C1A3A9028511D18000DCAE7 /* Utilities.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Utilities.entitlements; sourceTree = "<group>"; };
 		0C1A3A9128512959000DCAE7 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
-		0C1A3A93285144E8000DCAE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0C5FCDD92846C5AE00441443 /* AddEditTarif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTarif.swift; sourceTree = "<group>"; };
 		0C669A362847F7B30074B7CE /* UtilityStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityStore.swift; sourceTree = "<group>"; };
 		0C73063A283ACBA800B4FE91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -114,7 +113,6 @@
 		0CF338552839A7910063EE2C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				0C1A3A93285144E8000DCAE7 /* Info.plist */,
 				0C1A3A9028511D18000DCAE7 /* Utilities.entitlements */,
 				0CF33881283AC64E0063EE2C /* Views */,
 				0CF338642839A7E40063EE2C /* Model */,

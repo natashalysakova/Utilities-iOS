@@ -173,7 +173,7 @@ struct UtilityDetailsView: View {
                             editEnabled.toggle()
                             editedUtility = Utility.Data()
                         } label: {
-                            Text("Cancel")
+                            Text("cancel")
                         }.accentColor(.red)
                     }
                 }
@@ -186,7 +186,7 @@ struct UtilityDetailsView: View {
                             utility.update(from: editedUtility)
                             editedUtility = Utility.Data()
                         } label: {
-                            Text("Save")
+                            Text("save")
                         }
                     }
                     else{

@@ -32,7 +32,7 @@ struct MainView: View {
         
         TabView (selection: handler ) {
             NavigationView {
-                ChecksView(checks: $model.checks).navigationTitle(String(localized: "checks"))
+                ChecksView(dataModel: $model).navigationTitle(String(localized: "checks"))
             }
             .tabItem {
                 Image(systemName: "list.dash")

@@ -24,11 +24,14 @@ struct UtilitiesApp: App {
                     }
                 }
             }
+            .onAppear(){
+                model = UtilityDataModel.load2()
+                model.validate()
+            }
             .preferredColorScheme(.dark)
             .task {
                 do {
-                    model = try await UtilityDataModel.load()
-                    model.validate()
+                   
                 } catch {
                     errorWrapper = ErrorWrapper(error: error, guidance: "Scrumdinger will load sample data and continue")
                 }
